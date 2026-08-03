@@ -1,2 +1,2 @@
-pip install pyautogui
+pip install pyautogui   ||
 python -m playwright install
