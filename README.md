@@ -1,5 +1,4 @@
-
-
+Debes estar logueado primero en Tinder
 
 pip install pyautogui   ||
 python -m playwright install ||
