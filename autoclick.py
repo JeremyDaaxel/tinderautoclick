@@ -7,7 +7,7 @@ with sync_playwright() as p:
     page = context.pages[0]
     
     page.goto("https://tinder.com/app/recs")
-    input("Presiona Enter cuando estés en la pantalla de recomendaciones...")
+    input("Presiona Enter cuando estes en la pantalla principal...")
     
     INTERVALO_SEGUNDOS = 3
     NUMERO_CLICS = None
@@ -16,7 +16,6 @@ with sync_playwright() as p:
     while NUMERO_CLICS is None or contador < NUMERO_CLICS:
         try:
             # Selector específico para el botón
-            # Busca el botón que contiene el texto "Like" y tamaño de 64px
             boton = page.locator(
                 '.gamepad-button-wrapper.Sq\\(64px\\) '
                 'button:has-text("Like")'
@@ -25,12 +24,11 @@ with sync_playwright() as p:
             # Si no funciona
             if boton.count() == 0:
                 print("Buscando por clase específica...")
-                # Busca el botón que tiene el color de like
                 boton = page.locator(
                     'button[class*="gamepad-button"][class*="like"]'
                 ).first
             
-            # Verificar que existe
+            # Verificar
             if boton.count() == 0:
                 print("Botón Like no encontrado")
                 time.sleep(1)
